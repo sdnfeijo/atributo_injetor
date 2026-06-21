@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Painel de Atributos</title>
+
+<style>
+
+body{
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  background:#efefef;
+  color:#222;
+  overflow:hidden;
+}
+
+.app{
+  display:flex;
+  height:100vh;
+}
+
+.sidebar{
+  width:260px;
+  min-width:260px;
+  border-right:1px solid #c8c8c8;
+  overflow-y:auto;
+  padding:6px;
+  box-sizing:border-box;
+  background:#f3f3f3;
+}
+
+.inspector{
+  flex:1;
+  overflow-y:auto;
+  padding:8px;
+  box-sizing:border-box;
+  background:#f7f7f7;
+}
+
+.section{
+  margin-bottom:10px;
+}
+
+.section-title{
+  font-size:11px;
+  font-weight:bold;
+  margin-bottom:5px;
+}
+
+button{
+  font-size:11px;
+  padding:3px 6px;
+  border:1px solid #bcbcbc;
+  background:#e8e8e8;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#dddddd;
+}
+
+input, select{
+  width:100%;
+  box-sizing:border-box;
+  font-size:11px;
+  padding:3px;
+  margin-bottom:4px;
+  border:1px solid #bcbcbc;
+  background:white;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
+  margin-top:5px;
+}
+
+.grid-item{
+  display:flex;
+  align-items:center;
+  gap:3px;
+  padding:2px 0;
+}
+
+.native-item{
+  border:1px solid #c8c8c8;
+  background:white;
+  padding:10px 8px;
+  min-height:56px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  text-align:center;
+}
+
+.native-item:hover{
+  background:#f0f8ff;
+}
+
+.native-name{
+  font-weight:bold;
+  text-transform:uppercase;
+}
+
+.native-category{
+  margin-top:4px;
+  font-size:10px;
+  color:#666;
+}
+
+.native-indicator{
+  margin-left:8px;
+  font-size:10px;
+  color:#005a9e;
+  font-weight:bold;
+}
+
+.list{
+  border:1px solid #c8c8c8;
+  background:white;
+  max-height:420px;
+  overflow-y:auto;
+}
+
+.row-buttons{
+  display:flex;
+  gap:4px;
+}
+
+.row-buttons button{
+  flex:1;
+}
+
+.attr-table{
+  border:1px solid #c8c8c8;
+  background:white;
+  height:calc(100vh - 24px);
+  overflow-y:auto;
+}
+
+.attr-line{
+  border-bottom:1px solid #ececec;
+}
+
+.attr-row{
+  display:grid;
+  grid-template-columns:22px 180px 1fr 22px;
+  align-items:center;
+}
+
+.attr-label{
+  padding:5px;
+  border-right:1px solid #ececec;
+  background:#f5f5f5;
+  cursor:pointer;
+}
+
+.attr-label:hover{
+  background:#ececec;
+}
+
+.attr-input{
+  padding:5px;
+  word-break:break-word;
+}
+
+.attr-expand{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-left:1px solid #ececec;
+  cursor:pointer;
+  user-select:none;
+}
+
+.attr-expand:hover{
+  background:#f0f0f0;
+}
+
+.attr-details{
+  display:none;
+  padding:6px;
+  background:#fafafa;
+  border-top:1px solid #ececec;
+}
+
+.detail-line{
+  display:grid;
+  grid-template-columns:100px 1fr;
+  margin-bottom:4px;
+}
+
+.detail-label{
+  color:#666;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+}
+
+.checkbox{
+  width:12px;
+  height:12px;
+  margin:0;
+}
+
+.selected-attr{
+  background:#dfe8f5 !important;
+}
+
+.collection-item{
+  padding:4px 6px;
+  border-bottom:1px solid #ececec;
+  cursor:pointer;
+}
+
+.collection-item:hover{
+  background:#efefef;
+}
+
+.collection-selected{
+  background:#dfe8f5;
+}
+
+.mode-label{
+  margin-bottom:4px;
+  color:#666;
+}
+
+.repo-row{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  width:100%;
+}
+
+.repo-check{
+  width:12px;
+  height:12px;
+  margin:0;
+}
+
+.collection-header{
+  background:#dadada;
+  font-weight:bold;
+}
+
+.collection-actions{
+  display:flex;
+  gap:4px;
+  margin-top:4px;
+}
+
+.collection-actions button{
+  flex:1;
+}
+
+.inspector-check{
+  width:12px;
+  height:12px;
+  margin-left:5px;
+}
+
+.collection-preview{
+  background:#f7f7f7;
+  border-bottom:1px solid #d9d9d9;
+  padding-left:14px;
+}
+
+.collection-preview-item{
+  padding:3px 0;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.collection-preview-item input{
+  width:12px;
+  height:12px;
+  margin:0;
+}
+
+.repo-global-title{
+  background:#ececec;
+  font-weight:bold;
+  padding:4px 6px;
+  border-top:1px solid #cfcfcf;
+  border-bottom:1px solid #cfcfcf;
+}
+
+.empty-state{
+  padding:10px;
+  color:#777;
+}
+
+.attr-result{
+  font-size:10px;
+  color:#777;
+  margin-top:2px;
+}
+
+</style>
+
+</head>
+
+<body onload="initializeRuntime()">
+
+<div class="app">
+
+  <div class="sidebar">
+
+    <div class="section">
+
+      <div class="section-title">
+        Catálogo Nativo
+      </div>
+
+      <div class="row-buttons">
+
+        <button onclick="refreshNativeCatalog()">
+          Atualizar Catálogo
+        </button>
+
+        <button onclick="toggleGrid()">
+          Exibir / Ocultar
+        </button>
+
+      </div>
+
+      
+<div class="row-buttons">
+  <button onclick="selectAllNativeAttributes()">Selecionar Todos</button>
+  <button onclick="clearNativeAttributes()">Limpar</button>
+</div>
+<div id="nativeCatalogGrid"></div>
+
+
+    </div>
+
+    <div class="section">
+
+      <div class="section-title">
+        Editor de Atributo
+        <span id="nativeIndicator" class="native-indicator"></span>
+      </div>
+
+      <div class="mode-label" id="editorMode">
+        CREATE MODE
+      </div>
+
+      <input type="text" id="attributeName" placeholder="Nome">
+      <input type="text" id="attributeLabel" placeholder="Label">
+      <input type="text" id="attributeUnits" placeholder="Units">
+      <input type="text" id="attributeFormulaUnits" placeholder="Formula Units">
+      <input type="text" id="attributeAccess" placeholder="Access">
+      <input type="text" id="attributeFormLabel" placeholder="Form Label">
+      <input type="text" id="attributeOptions" placeholder="Options">
+      <input type="text" id="attributeValue" placeholder="Valor">
+      <input type="text" id="attributeFormula" placeholder="Formula">
+      <input type="text" id="attributeSource" placeholder="Source" readonly style="background:#f5f5f5;">
+
+      <div class="row-buttons">
+
+        <button
+          id="primaryActionButton"
+          onclick="primaryAction()">
+
+          Adicionar Atributo
+
+        </button>
+
+        <button onclick="clearEditor()">
+          Limpar
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="section">
+
+      <div class="section-title">
+        Coleções
+      </div>
+
+      <div class="collection-actions">
+
+        <button onclick="saveCollection()">
+          Salvar
+        </button>
+
+        <button onclick="updateCollection()">
+          Atualizar
+        </button>
+
+      </div>
+
+      <div class="collection-actions">
+
+        <button onclick="deleteCollection()">
+          Excluir
+        </button>
+
+        <button onclick="clearCollectionSelection()">
+          Limpar
+        </button>
+
+      </div>
+
+      <div class="collection-actions">
+
+        <button onclick="applySelectedAttributes()">
+          Aplicar Selecionados
+        </button>
+
+      </div>
+
+      <div class="collection-actions">
+
+        <button onclick="copyInspectorSelectionToRepository()">
+          Copiar do Inspetor
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="section">
+
+      <div class="section-title">
+        Biblioteca de Atributos
+      </div>
+
+      <div class="list" id="collectionList"></div>
+
+    </div>
+
+  </div>
+
+  <div class="inspector">
+
+    <div class="topbar">
+
+      <div class="section-title">
+        Inspetor de Atributos
+      </div>
+
+      <button onclick="refreshInspector()">
+        Atualizar
+      </button>
+
+    </div>
+
+    <div class="attr-table" id="attrTable">
+
+      <div class="empty-state">
+        Nenhum componente selecionado.
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+let currentAttribute = null
+let attributeRepository = []
+let savedCollections = []
+let activeCollection = null
+let currentMode = "create"
+let inspectorAttributes = []
+let nativeCatalog = []
+
+function initializeRuntime(){
+
+  setTimeout(function(){
+
+    if(window.sketchup){
+
+      sketchup.load_repository()
+      sketchup.inspect_component()
+      sketchup.load_native_catalog()
+
+    }
+
+  }, 250)
+
+}
+
+window.loadRepository = function(data){
+
+  attributeRepository = data || []
+
+  renderCollection()
+
+}
+
+window.loadCollections = function(data){
+
+  savedCollections = data || []
+
+  renderCollection()
+
+}
+
+function refreshNativeCatalog(){
+
+  if(window.sketchup){
+
+    sketchup.load_native_catalog()
+
+  }
+
+}
+
+window.loadNativeCatalog = function(data){
+
+  nativeCatalog = data || []
+
+  renderNativeCatalog()
+
+}
+
+
+function renderNativeCatalog(){
+
+  const grid = document.getElementById("nativeCatalogGrid")
+
+  grid.innerHTML = ""
+
+  if(!nativeCatalog || nativeCatalog.length === 0){
+
+    grid.innerHTML =
+      '<div class="empty-state">Nenhum item no catálogo nativo.</div>'
+
+    return
+
+  }
+
+  const container = document.createElement("div")
+
+  container.style.display = "grid"
+  container.style.gridTemplateColumns = "repeat(3,1fr)"
+  container.style.gap = "4px"
+
+  nativeCatalog.forEach(function(native){
+
+    const item = document.createElement("label")
+
+    item.innerHTML =
+      '<input class="native-checkbox" type="checkbox" value="' +
+      (native.name || "") +
+      '"> ' +
+      (native.name || "")
+
+    container.appendChild(item)
+
+  })
+
+  grid.appendChild(container)
+
+}
+
+
+function importNativeAttribute(name){
+
+  if(!name){
+    return
+  }
+
+  if(window.sketchup){
+
+    sketchup.import_native_attribute(name)
+
+  }
+
+}
+
+function syncCollections(){
+
+  if(window.sketchup){
+
+    sketchup.sync_collections(
+      JSON.stringify(savedCollections)
+    )
+
+  }
+
+}
+
+function toggleGrid(){
+
+  const grid =
+    document.getElementById("nativeCatalogGrid")
+
+  if(grid.style.display === "none"){
+
+    grid.style.display = "grid"
+
+  }else{
+
+    grid.style.display = "none"
+
+  }
+
+}
+
+function selectAllNativeAttributes(){
+
+  document
+    .querySelectorAll(".native-checkbox")
+    .forEach(function(el){
+
+      el.checked = true
+
+    })
+
+}
+
+function clearNativeAttributes(){
+
+  document
+    .querySelectorAll(".native-checkbox")
+    .forEach(function(el){
+
+      el.checked = false
+
+    })
+
+}
+
+function refreshInspector(){
+
+  if(window.sketchup){
+
+    sketchup.inspect_component()
+
+  }
+
+}
+
+function toggleDetails(id){
+
+  const details =
+    document.getElementById(id)
+
+  if(details.style.display === "block"){
+
+    details.style.display = "none"
+
+  }else{
+
+    details.style.display = "block"
+
+  }
+
+}
+
+function setEditorMode(mode){
+
+  currentMode = mode
+
+  const label =
+    document.getElementById("editorMode")
+
+  const button =
+    document.getElementById(
+      "primaryActionButton"
+    )
+
+  if(mode === "create"){
+
+    label.innerHTML = "CREATE MODE"
+    button.innerHTML = "Adicionar Atributo"
+
+  }else if(mode === "component"){
+
+    label.innerHTML = "COMPONENT MODE"
+    button.innerHTML = "Atualizar Componente"
+
+  }else if(mode === "collection"){
+
+    label.innerHTML = "COLLECTION MODE"
+    button.innerHTML = "Atualizar Atributo"
+
+  }
+
+}
+
+function clearEditor(){
+
+  currentAttribute = null
+
+  setEditorMode("create")
+
+  document.getElementById(
+    "attributeName"
+  ).value = ""
+
+  document.getElementById(
+    "attributeLabel"
+  ).value = ""
+
+  document.getElementById(
+    "attributeUnits"
+  ).value = ""
+
+  document.getElementById(
+    "attributeFormulaUnits"
+  ).value = ""
+
+  document.getElementById(
+    "attributeAccess"
+  ).value = ""
+
+  document.getElementById(
+    "attributeFormLabel"
+  ).value = ""
+
+  document.getElementById(
+    "attributeOptions"
+  ).value = ""
+
+  document.getElementById(
+    "attributeValue"
+  ).value = ""
+
+  document.getElementById(
+    "attributeFormula"
+  ).value = ""
+
+  document.getElementById(
+    "attributeSource"
+  ).value = ""
+
+  document.getElementById(
+    "nativeIndicator"
+  ).innerText = ""
+
+}
+
+function clearCollectionSelection(){
+
+  document
+    .querySelectorAll(".repo-check")
+    .forEach(function(el){
+
+      el.checked = false
+
+    })
+
+  activeCollection = null
+
+  renderCollection()
+
+}
+
+function primaryAction(){
+
+  if(currentMode === "create"){
+
+    addAttributeToRepository()
+
+  }else if(currentMode === "component"){
+
+    updateComponentAttribute()
+
+  }else if(currentMode === "collection"){
+
+    updateRepositoryAttribute()
+
+  }
+
+}
+
+function addAttributeToRepository(){
+
+  const data = {
+
+    name:
+      document.getElementById(
+        "attributeName"
+      ).value,
+
+    raw_value:
+      document.getElementById(
+        "attributeValue"
+      ).value,
+
+    formula:
+      document.getElementById(
+        "attributeFormula"
+      ).value,
+
+    value:
+      document.getElementById(
+        "attributeValue"
+      ).value,
+
+    units:"",
+    access:"",
+    source:"definition"
+
+  }
+
+  if(!data.name){
+    return
+  }
+
+  const existing =
+    attributeRepository.findIndex(
+      function(item){
+
+      return item.name === data.name
+
+    })
+
+  if(existing >= 0){
+
+    attributeRepository[existing] = data
+
+  }else{
+
+    attributeRepository.push(data)
+
+  }
+
+  if(window.sketchup){
+
+    sketchup.sync_repository(
+      JSON.stringify(attributeRepository)
+    )
+
+  }
+
+  renderCollection()
+
+}
+
+function updateRepositoryAttribute(){
+
+  if(!currentAttribute){
+    return
+  }
+
+  const index =
+    attributeRepository.findIndex(
+      function(item){
+
+      return item.name ===
+        currentAttribute.name
+
+    })
+
+  if(index < 0){
+    return
+  }
+
+  attributeRepository[index] = {
+
+    ...attributeRepository[index],
+
+    name:
+      document.getElementById(
+        "attributeName"
+      ).value,
+
+    label:
+      document.getElementById(
+        "attributeLabel"
+      ).value,
+
+    units:
+      document.getElementById(
+        "attributeUnits"
+      ).value,
+
+    formulaunits:
+      document.getElementById(
+        "attributeFormulaUnits"
+      ).value,
+
+    access:
+      document.getElementById(
+        "attributeAccess"
+      ).value,
+
+    formlabel:
+      document.getElementById(
+        "attributeFormLabel"
+      ).value,
+
+    options:
+      document.getElementById(
+        "attributeOptions"
+      ).value,
+
+    raw_value:
+      document.getElementById(
+        "attributeValue"
+      ).value,
+
+    value:
+      document.getElementById(
+        "attributeValue"
+      ).value,
+
+    formula:
+      document.getElementById(
+        "attributeFormula"
+      ).value,
+
+    source:
+      currentAttribute.source ||
+      document.getElementById(
+        "attributeSource"
+      ).value ||
+      "definition"
+
+  }
+
+  if(window.sketchup){
+
+    sketchup.sync_repository(
+      JSON.stringify(attributeRepository)
+    )
+
+  }
+
+  renderCollection()
+
+}
+
+function updateComponentAttribute(){
+
+  if(!currentAttribute){
+    return
+  }
+
+  const data = {
+
+    name:
+      document.getElementById(
+        "attributeName"
+      ).value,
+
+    value:
+      document.getElementById(
+        "attributeValue"
+      ).value,
+
+    formula:
+      document.getElementById(
+        "attributeFormula"
+      ).value,
+
+    units:
+      currentAttribute.units || "",
+
+    access:
+      currentAttribute.access || "",
+
+    source:
+      currentAttribute.source || "definition"
+
+  }
+
+  if(window.sketchup){
+
+    sketchup.update_attribute(
+      JSON.stringify(data)
+    )
+
+  }
+
+}
+
+function getSelectedAttributeNames(){
+
+  const selected = []
+
+  document
+    .querySelectorAll(".repo-check")
+    .forEach(function(el){
+
+      if(el.checked){
+
+        selected.push(el.value)
+
+      }
+
+    })
+
+  return selected
+
+}
+
+function saveCollection(){
+
+  const selected =
+    getSelectedAttributeNames()
+
+  if(selected.length === 0){
+    return
+  }
+
+  const name =
+    prompt("Nome da coleção:")
+
+  if(!name){
+    return
+  }
+
+  const data = {
+
+    name:name,
+    selected:selected
+
+  }
+
+  const existing =
+    savedCollections.findIndex(
+      function(item){
+
+      return item.name === name
+
+    })
+
+  if(existing >= 0){
+
+    savedCollections[existing] = data
+
+  }else{
+
+    savedCollections.unshift(data)
+
+  }
+
+  syncCollections()
+
+  activeCollection = data
+
+  renderCollection()
+
+}
+
+function updateCollection(){
+
+  if(!activeCollection){
+    return
+  }
+
+  activeCollection.selected =
+    getSelectedAttributeNames()
+
+  syncCollections()
+
+  renderCollection()
+
+}
+
+function loadCollection(collection){
+
+  document
+    .querySelectorAll(".repo-check")
+    .forEach(function(el){
+
+      el.checked =
+        collection.selected.includes(
+          el.value
+        )
+
+    })
+
+}
+
+function deleteCollection(){
+
+  if(!activeCollection){
+    return
+  }
+
+  savedCollections =
+    savedCollections.filter(
+      function(item){
+
+      return item.name !==
+        activeCollection.name
+
+    })
+
+  syncCollections()
+
+  activeCollection = null
+
+  renderCollection()
+
+}
+
+function renderCollection(){
+
+  const list =
+    document.getElementById(
+      "collectionList"
+    )
+
+  const currentChecks = {}
+
+  document
+    .querySelectorAll(".repo-check")
+    .forEach(function(el){
+
+      currentChecks[el.value] =
+        el.checked
+
+    })
+
+  list.innerHTML = ""
+
+  savedCollections.forEach(
+    function(collection){
+
+    const opened =
+      activeCollection &&
+      activeCollection.name ===
+      collection.name
+
+    const header =
+      document.createElement("div")
+
+    header.className =
+      "collection-item collection-header"
+
+    header.innerHTML =
+      (opened ? "▼ " : "► ") +
+      collection.name
+
+    header.onclick = function(){
+
+      if(
+        activeCollection &&
+        activeCollection.name ===
+        collection.name
+      ){
+
+        activeCollection = null
+
+      }else{
+
+        activeCollection = collection
+
+        loadCollection(collection)
+
+      }
+
+      renderCollection()
+
+    }
+
+    list.appendChild(header)
+
+    if(opened){
+
+      const preview =
+        document.createElement("div")
+
+      preview.className =
+        "collection-preview"
+
+      collection.selected.forEach(
+        function(attrName){
+
+        const attr =
+          attributeRepository.find(
+            function(item){
+
+            return item.name ===
+              attrName
+
+          })
+
+        if(!attr){
+          return
+        }
+
+        const item =
+          document.createElement("div")
+
+        item.className =
+          "collection-preview-item"
+
+        item.innerHTML =
+
+          '<input type="checkbox" checked>' +
+
+          '<span>' +
+            attr.name +
+          '</span>'
+
+        item.onclick = function(){
+
+          setEditorMode("collection")
+
+          loadAttributeEditor(attr)
+
+        }
+
+        preview.appendChild(item)
+
+      })
+
+      list.appendChild(preview)
+
+    }
+
+  })
+
+  const globalTitle =
+    document.createElement("div")
+
+  globalTitle.className =
+    "repo-global-title"
+
+  globalTitle.innerHTML =
+    "Biblioteca Global"
+
+  list.appendChild(globalTitle)
+
+  attributeRepository.forEach(
+    function(attr){
+
+    const item =
+      document.createElement("div")
+
+    item.className =
+      "collection-item"
+
+    const checked =
+      currentChecks[attr.name] || false
+
+    item.innerHTML =
+
+      '<div class="repo-row">' +
+
+        '<input class="repo-check" type="checkbox" value="' + attr.name + '"' +
+        (checked ? ' checked' : '') +
+        '>' +
+
+        '<span>' +
+          attr.name +
+          (attr.source === 'dc_native' ? ' [NATIVE]' : '') +
+        '</span>' +
+
+      '</div>'
+
+    item.onclick = function(e){
+
+      if(e.target.tagName === "INPUT"){
+        return
+      }
+
+      setEditorMode("collection")
+
+      loadAttributeEditor(attr)
+
+      document
+        .querySelectorAll(
+          ".collection-item"
+        )
+        .forEach(function(el){
+
+          el.classList.remove(
+            "collection-selected"
+          )
+
+        })
+
+      item.classList.add(
+        "collection-selected"
+      )
+
+    }
+
+    list.appendChild(item)
+
+  })
+
+}
+
+function applySelectedAttributes(){
+
+  const selected = []
+
+  document
+    .querySelectorAll(".native-checkbox")
+    .forEach(function(el){
+
+      if(el.checked){
+
+        const nativeRegistry = {
+
+          lenx:{ units:"AUTO_LENGTH", access:"" },
+          leny:{ units:"AUTO_LENGTH", access:"" },
+          lenz:{ units:"AUTO_LENGTH", access:"" },
+
+          x:{ units:"AUTO_LENGTH", access:"" },
+          y:{ units:"AUTO_LENGTH", access:"" },
+          z:{ units:"AUTO_LENGTH", access:"" },
+
+          rotx:{ units:"DEGREES", access:"" },
+          roty:{ units:"DEGREES", access:"" },
+          rotz:{ units:"DEGREES", access:"" },
+
+          copies:{ units:"", access:"" },
+          hidden:{ units:"", access:"" },
+          onclick:{ units:"", access:"" },
+
+          itemcode:{ units:"", access:"" },
+          name:{ units:"", access:"" },
+          description:{ units:"", access:"" }
+
+        }
+
+        const nativeDef =
+          nativeRegistry[el.value] || {}
+
+        const existing =
+          (inspectorAttributes || []).find(
+            function(a){
+
+              return a.name === el.value
+
+            })
+
+        selected.push({
+
+          name:el.value,
+          value:
+            existing
+              ? existing.value
+              : "",
+          formula:
+            existing
+              ? existing.formula
+              : "",
+          units:nativeDef.units || "",
+          access:nativeDef.access || ""
+
+        })
+
+      }
+
+    })
+
+  document
+    .querySelectorAll(".repo-check")
+    .forEach(function(el){
+
+      if(el.checked){
+
+        const attr =
+          attributeRepository.find(
+            function(item){
+
+              return item.name ===
+                el.value
+
+            })
+
+        if(attr){
+
+          selected.push(attr)
+
+        }
+
+      }
+
+    })
+
+  if(selected.length === 0){
+    console.log("SELECTED", selected)
+    console.log("TOTAL", selected.length)
+    return
+  }
+
+  if(window.sketchup){
+    console.log("ENVIANDO PARA RUBY")
+    console.log(JSON.stringify(selected))
+
+    sketchup.apply_collection(
+      JSON.stringify(selected)
+    )
+
+  }
+
+}
+
+function copyInspectorSelectionToRepository(){
+
+  document
+    .querySelectorAll(".inspector-check")
+    .forEach(function(el){
+
+      if(el.checked){
+
+        const attr =
+          inspectorAttributes.find(
+            function(item){
+
+            return item.name ===
+              el.value
+
+          })
+
+        if(!attr){
+          return
+        }
+
+        const existing =
+          attributeRepository.findIndex(
+            function(item){
+
+            return item.name ===
+              attr.name
+
+          })
+
+        if(existing >= 0){
+
+          attributeRepository[existing] = attr
+
+        }else{
+
+          attributeRepository.push(attr)
+
+        }
+
+      }
+
+    })
+
+  if(window.sketchup){
+
+    sketchup.sync_repository(
+      JSON.stringify(attributeRepository)
+    )
+
+  }
+
+  renderCollection()
+
+}
+
+function selectAttribute(attr, element){
+
+  setEditorMode("component")
+
+  currentAttribute = attr
+
+  document
+    .querySelectorAll(".attr-label")
+    .forEach(function(el){
+
+      el.classList.remove(
+        "selected-attr"
+      )
+
+    })
+
+  element.classList.add(
+    "selected-attr"
+  )
+
+  if(window.sketchup){
+
+    sketchup.select_attribute(
+      JSON.stringify(attr)
+    )
+
+  }
+
+}
+
+window.loadAttributeEditor = function(attr){
+
+  currentAttribute = attr
+
+  document.getElementById(
+    "attributeName"
+  ).value =
+    attr.name || ""
+
+  document.getElementById(
+    "attributeLabel"
+  ).value =
+    attr.label || ""
+
+  document.getElementById(
+    "attributeUnits"
+  ).value =
+    attr.units || ""
+
+  document.getElementById(
+    "attributeFormulaUnits"
+  ).value =
+    attr.formulaunits || ""
+
+  document.getElementById(
+    "attributeAccess"
+  ).value =
+    attr.access || ""
+
+  document.getElementById(
+    "attributeFormLabel"
+  ).value =
+    attr.formlabel || ""
+
+  document.getElementById(
+    "attributeOptions"
+  ).value =
+    attr.options || ""
+
+  document.getElementById(
+    "attributeValue"
+  ).value =
+    attr.raw_value || attr.value || ""
+
+  document.getElementById(
+    "attributeFormula"
+  ).value =
+    attr.formula || ""
+
+  document.getElementById(
+    "attributeSource"
+  ).value =
+    attr.source || ""
+
+  document.getElementById(
+    "nativeIndicator"
+  ).innerText =
+    attr.source === "dc_native" ? "[NATIVE]" : ""
+
+}
+
+window.renderInspector = function(data){
+
+  inspectorAttributes = data
+
+  const table =
+    document.getElementById(
+      "attrTable"
+    )
+
+  table.innerHTML = ""
+
+  if(!data || data.length === 0){
+
+    table.innerHTML =
+      '<div class="empty-state">' +
+      'Nenhum atributo encontrado.' +
+      '</div>'
+
+    return
+
+  }
+
+  data.forEach(function(attr, index){
+
+    const detailId =
+      "detail_" + index
+
+    const displayMain =
+      (
+        attr.formula &&
+        attr.formula !== ""
+      )
+      ? attr.formula
+      : (attr.value || "")
+
+    const displayResult =
+      (
+        attr.formula &&
+        attr.formula !== ""
+      )
+      ? '<div class="attr-result">' +
+          (attr.value || "") +
+        '</div>'
+      : ''
+
+    const row =
+      document.createElement("div")
+
+    row.className = "attr-line"
+
+    row.innerHTML =
+
+      '<div class="attr-row">' +
+
+        '<div>' +
+
+          '<input ' +
+          'class="inspector-check" ' +
+          'type="checkbox" ' +
+          'value="' + attr.name + '">' +
+
+        '</div>' +
+
+        '<div class="attr-label">' +
+
+          (attr.name || "") +
+
+        '</div>' +
+
+        '<div class="attr-input">' +
+
+          displayMain +
+
+          displayResult +
+
+        '</div>' +
+
+        '<div ' +
+        'class="attr-expand" ' +
+        'onclick="toggleDetails(\'' + detailId + '\')">' +
+
+          '▸' +
+
+        '</div>' +
+
+      '</div>' +
+
+      '<div class="attr-details" id="' + detailId + '">' +
+
+        '<div class="detail-line">' +
+        '<div class="detail-label">Formula:</div>' +
+        '<div>' + (attr.formula || "") + '</div>' +
+        '</div>' +
+
+        '<div class="detail-line">' +
+        '<div class="detail-label">Valor:</div>' +
+        '<div>' + (attr.value || "") + '</div>' +
+        '</div>' +
+
+        '<div class="detail-line">' +
+        '<div class="detail-label">Bruto:</div>' +
+        '<div>' + (attr.raw_value || "") + '</div>' +
+        '</div>' +
+
+        '<div class="detail-line">' +
+        '<div class="detail-label">Tipo:</div>' +
+        '<div>' + (attr.type || "") + '</div>' +
+        '</div>' +
+
+        '<div class="detail-line">' +
+        '<div class="detail-label">Unidade:</div>' +
+        '<div>' + (attr.units || "") + '</div>' +
+        '</div>' +
+
+        '<div class="detail-line">' +
+        '<div class="detail-label">Origem:</div>' +
+        '<div>' + (attr.source || "") + '</div>' +
+        '</div>' +
+
+      '</div>'
+
+    const label =
+      row.querySelector(".attr-label")
+
+    label.onclick = function(){
+
+      selectAttribute(
+        attr,
+        label
+      )
+
+    }
+
+    table.appendChild(row)
+
+  })
+
+}
+
+</script>
+
+</body>
+</html>

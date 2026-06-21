@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Functions version='1.0'>
+  <!-- LOGIC CATEGORY -->
+  <Function>
+    <Name>IF</Name>
+    <Category>Logic</Category>
+    <Syntax>IF(condition,true,false)</Syntax>
+    <Description>
+      Conditional evaluation - returns true_value if condition is true,
+      false_value otherwise
+    </Description>
+    <Example>IF(LenX&gt;100,1,0)</Example>
+    <Source>dc_native</Source>
+    <ValidationStatus>documented</ValidationStatus>
+    <UsageStatus>production</UsageStatus>
+  </Function>
+  <Function>
+    <Name>AND</Name>
+    <Category>Logic</Category>
+    <Syntax>AND(condition1,condition2,...)</Syntax>
+    <Description>Logical AND - returns true if all conditions are true</Description>
+    <Example>AND(LenX&gt;50,LenY&gt;50)</Example>
+    <Source>dc_native</Source>
+    <ValidationStatus>documented</ValidationStatus>
+    <UsageStatus>production</UsageStatus>
+  </Function>
+  <Function>
+    <Name>OR</Name>
+    <Category>Logic</Category>
+    <Syntax>OR(condition1,condition2,...)</Syntax>
+    <Description>Logical OR - returns true if any condition is true</Description>
+    <Example>OR(LenX&lt;50,LenY&lt;50)</Example>
+    <Source>dc_native</Source>
+    <ValidationStatus>documented</ValidationStatus>
+    <UsageStatus>production</UsageStatus>
+  </Function>
+  <Function>
+    <Name>NOT</Name>
+    <Category>Logic</Category>
+    <Syntax>NOT(condition)</Syntax>
+    <Description>Logical NOT - inverts the boolean value</Description>
+    <Example>NOT(Hidden)</Example>
+    <Source>dc_native</Source>
+    <ValidationStatus>documented</ValidationStatus>
+    <UsageStatus>production</UsageStatus>
+  </Function>
+  <!-- MATH CATEGORY -->
+  <Function>
+    <Name>ROUND</Name>
+    <Category>Math</Category>
+    <Syntax>ROUND(number,decimals)</Syntax>
+    <Description>Rounds a number to a specified number of decimal places</Description>
+    <Example>ROUND(3.1415,2)</Example>
+    <Source>dc_native</Source>
+    <ValidationStatus>documented</ValidationStatus>
+    <UsageStatus>production</UsageStatus>
+  </Function>
+  <Function>
+    <Name>INT</Name>
+    <Category>Math</Category>
+    <Syntax>INT(number)</Syntax>
+    <Description>Truncates to integer by removing decimal portion</Description>
+    <Example>INT(3.7)</Example>
+    <Source>dc_native</Source>
+    <ValidationStatus>documented</ValidationStatus>
+    <UsageStatus>production</UsageStatus>
+  </Function>
+  <Function>
+    <Name>ABS</Name>
+    <Category>Math</Category>
+    <Syntax>ABS(number)</Syntax>
+    <Description>Returns the absolute value (removes negative sign)</Description>
+    <Example>ABS(-5)</Example>
+    <Source>dc_native</Source>
+    <ValidationStatus>documented</ValidationStatus>
+    <UsageStatus>production</UsageStatus>
+  </Function>
+  <Function>
+    <Name>SIN</Name>
+    <Category>Math</Category>
+    <Syntax>SIN(radians)</Syntax>
+    <Description>Sine trigonometric function</Description>
+    <Example>SIN(0.5)</Example>
+    <Source>dc_native</Source>
+    <ValidationStatus>documented</ValidationStatus>
+    <UsageStatus>production</UsageStatus>
+  </Function>
+  <Function>
+    <Name>COS</Name>
+    <Category>Math</Category>
+    <Syntax>COS(radians)</Syntax>
+    <Description>Cosine trigonometric function</Description>
+    <Example>COS(0.5)</Example>
+    <Source>dc_native</Source>
+    <ValidationStatus>documented</ValidationStatus>
+    <UsageStatus>production</UsageStatus>
+  </Function>
+  <Function>
+    <Name>TAN</Name>
+    <Category>Math</Category>
+    <Syntax>TAN(radians)</Syntax>
+    <Description>Tangent trigonometric function</Description>
+    <Example>TAN(0.5)</Example>
+    <Source>dc_native</Source>
+    <ValidationStatus>documented</ValidationStatus>
+    <UsageStatus>production</UsageStatus>
+  </Function>
+  <Function>
+    <Name>SQRT</Name>
+    <Category>Math</Category>
+    <Syntax>SQRT(number)</Syntax>
+    <Description>Square root calculation</Description>
+    <Example>SQRT(16)</Example>
+    <Source>dc_native</Source>
+    <ValidationStatus>unverified</ValidationStatus>
+    <UsageStatus>experimental</UsageStatus>
+  </Function>
+  <!-- TEXT CATEGORY -->
+  <Function>
+    <Name>LEN</Name>
+    <Category>Text</Category>
+    <Syntax>LEN(text)</Syntax>
+    <Description>Returns the length (character count) of a text string</Description>
+    <Example>LEN("Hello")</Example>
+    <Source>dc_native</Source>
+    <ValidationStatus>unverified</ValidationStatus>
+    <UsageStatus>experimental</UsageStatus>
+  </Function>
+  <!-- RUNTIME CATEGORY -->
+  <Function>
+    <Name>COPY</Name>
+    <Category>Runtime</Category>
+    <Syntax>COPY</Syntax>
+    <Description>
+      Runtime-generated instance index variable - automatically incremented for
+      each copy in a multi-copy scenario
+    </Description>
+    <Example>Copies=3 generates COPY values 0,1,2</Example>
+    <Source>dc_runtime</Source>
+    <ValidationStatus>internal</ValidationStatus>
+    <UsageStatus>internal</UsageStatus>
+  </Function>
+</Functions>

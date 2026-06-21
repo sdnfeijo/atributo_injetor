@@ -1,0 +1,554 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<InjectorRepository version='1.0'>
+  <AttributeLibrary>
+    <AttributeDefinition id='sol_alt_int'>
+      <Label>sol_alt_int</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>56.3</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_esp_corpo'>
+      <Label>sol_esp_corpo</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>18</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_larg_int'>
+      <Label>sol_larg_int</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>116.3</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_larg_porta'>
+      <Label>sol_larg_porta</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>39.083333</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_max_alt'>
+      <Label>sol_max_alt</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>60</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_max_larg'>
+      <Label>sol_max_larg</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>120</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_pos_1porta'>
+      <Label>sol_pos_1porta</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>80</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_pos_2portas'>
+      <Label>sol_pos_2portas</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>1.85</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_pos_div'>
+      <Label>sol_pos_div</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>38.15</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_pos_lat'>
+      <Label>sol_pos_lat</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>78.15</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_prof_int'>
+      <Label>sol_prof_int</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>42.85</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_rec_mid'>
+      <Label>sol_rec_mid</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>0.775</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_rec_parcial'>
+      <Label>sol_rec_parcial</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>7.75</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_rec_total'>
+      <Label>sol_rec_total</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>18.5</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_recuo_fun'>
+      <Label>sol_recuo_fun</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>1.55</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_vao_lado_mai'>
+      <Label>sol_vao_lado_mai</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>30.039370078740163</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_vao_lado_men'>
+      <Label>sol_vao_lado_men</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>15.019685039370078</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='sol_vao_prat'>
+      <Label>sol_vao_prat</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>27.225</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='wpscode'>
+      <Label>wpscode</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>MOD</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='wpsdepth'>
+      <Label>wpsdepth</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>450</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='wpsdescription'>
+      <Label>wpsdescription</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>AEREO CANTO RETO</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='wpsheight'>
+      <Label>wpsheight</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>600</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='wpswidth'>
+      <Label>wpswidth</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>1200</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>instance</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='mxm008_rec_dir'>
+      <Label>mxm008_rec_dir</Label>
+      <Units>STRING</Units>
+      <Access>LIST</Access>
+      <DefaultValue>1</DefaultValue>
+      <Formula></Formula>
+      <FormLabel>RECOBRE DIREITA:</FormLabel>
+      <FormulaUnits>STRING</FormulaUnits>
+      <Options>&amp;PARCIAL=1&amp;TOTAL=2&amp;EMBUTIDO=3&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='itemcode'>
+      <Label>ItemCode</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>MOD</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='material'>
+      <Label>material</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>azul</DefaultValue>
+      <Formula>wpsfinish</Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='teste1000'>
+      <Label>teste1000</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>12345</DefaultValue>
+      <Formula>1+2=3</Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='info'>
+      <Label>info</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>
+         &lt;BR&gt;&lt;font size=&quot;2&quot;
+        color=&quot;darkblue&quot;&gt;ARMÁRIO DE CANTO EDITÁVEL COM OPÇÃO DE
+        LADO E RECOBRIMENTO DAS PORTAS 
+      </DefaultValue>
+      <Formula>text_alt&amp;&quot;&lt;BR&gt;&quot;&amp;text_larg</Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits>STRING</FormulaUnits>
+      <Options></Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='description'>
+      <Label>Description</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>AEREO CANTO RETO</DefaultValue>
+      <Formula>mxm000_nome</Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='teste_atte'>
+      <Label>teste_atte</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>2</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='def_rec_bottom'>
+      <Label>def_rec_bottom</Label>
+      <Units>STRING</Units>
+      <Access>NONE</Access>
+      <DefaultValue>0.3051181102362205</DefaultValue>
+      <Formula>
+        
+        if(mxm011_rec_inf=1,sol_rec_parcial/10,if(mxm011_rec_inf=2,sol_rec_total/10,if(mxm011_rec_inf=3,wpsgrecobrimentoembutido/10,if(mxm011_rec_inf=4,wpsgrecobrimentopassante/10)))) 
+      </Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits>CENTIMETERS</FormulaUnits>
+      <Options>&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='def_rec_left'>
+      <Label>def_rec_left</Label>
+      <Units>STRING</Units>
+      <Access>NONE</Access>
+      <DefaultValue>0.3051181102362205</DefaultValue>
+      <Formula>
+        
+        if(mxm009_rec_esq=1,sol_rec_parcial/10,if(mxm009_rec_esq=2,sol_rec_total/10,if(mxm009_rec_esq=3,wpsgrecobrimentoembutido/10))) 
+      </Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits>CENTIMETERS</FormulaUnits>
+      <Options>&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='def_rec_right'>
+      <Label>def_rec_right</Label>
+      <Units>STRING</Units>
+      <Access>NONE</Access>
+      <DefaultValue>0.3051181102362205</DefaultValue>
+      <Formula>
+        
+        if(mxm008_rec_dir=1,sol_rec_parcial/10,if(mxm008_rec_dir=2,sol_rec_total/10,if(mxm008_rec_dir=3,wpsgrecobrimentoembutido/10))) 
+      </Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits>CENTIMETERS</FormulaUnits>
+      <Options>&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='def_rec_upper'>
+      <Label>def_rec_upper</Label>
+      <Units>STRING</Units>
+      <Access>NONE</Access>
+      <DefaultValue>0.3051181102362205</DefaultValue>
+      <Formula>
+        
+        if(mxm010_rec_sup=1,sol_rec_parcial/10,if(mxm010_rec_sup=2,sol_rec_total/10,if(mxm010_rec_sup=3,wpsgrecobrimentoembutido/10,if(mxm010_rec_sup=4,wpsgrecobrimentopassante/10)))) 
+      </Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits>CENTIMETERS</FormulaUnits>
+      <Options>&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='mxm000_nome'>
+      <Label>mxm000_nome</Label>
+      <Units>STRING</Units>
+      <Access>TEXTBOX</Access>
+      <DefaultValue>AEREO CANTO RETO</DefaultValue>
+      <Formula></Formula>
+      <FormLabel>NOME:</FormLabel>
+      <FormulaUnits>STRING</FormulaUnits>
+      <Options></Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='mxm001_altura'>
+      <Label>mxm001_altura</Label>
+      <Units>MILLIMETERS</Units>
+      <Access>TEXTBOX</Access>
+      <DefaultValue>23.62204724409449</DefaultValue>
+      <Formula></Formula>
+      <FormLabel>ALTURA:</FormLabel>
+      <FormulaUnits>CENTIMETERS</FormulaUnits>
+      <Options>&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='mxm002_larg'>
+      <Label>mxm002_larg</Label>
+      <Units>MILLIMETERS</Units>
+      <Access>TEXTBOX</Access>
+      <DefaultValue>47.24409448818898</DefaultValue>
+      <Formula></Formula>
+      <FormLabel>LARGURA:</FormLabel>
+      <FormulaUnits>CENTIMETERS</FormulaUnits>
+      <Options>&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='mxm003_prof'>
+      <Label>mxm003_prof</Label>
+      <Units>MILLIMETERS</Units>
+      <Access>TEXTBOX</Access>
+      <DefaultValue>17.716535433070866</DefaultValue>
+      <Formula></Formula>
+      <FormLabel>PROFUNDIDADE:</FormLabel>
+      <FormulaUnits>CENTIMETERS</FormulaUnits>
+      <Options>&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='mxm005_rec_prat'>
+      <Label>mxm005_rec_prat</Label>
+      <Units>MILLIMETERS</Units>
+      <Access>TEXTBOX</Access>
+      <DefaultValue>0</DefaultValue>
+      <Formula></Formula>
+      <FormLabel>RECUO PRAT.:</FormLabel>
+      <FormulaUnits>CENTIMETERS</FormulaUnits>
+      <Options>&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='mxm006_ajuste_prat'>
+      <Label>mxm006_ajuste_prat</Label>
+      <Units>STRING</Units>
+      <Access>LIST</Access>
+      <DefaultValue>3</DefaultValue>
+      <Formula></Formula>
+      <FormLabel>AJUSTE PRAT.:</FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options>&amp;SUPERIOR=1&amp;INFERIOR=2&amp;CENTRALIZADO=3&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='mxm006_vao_prat'>
+      <Label>mxm006_vao_prat</Label>
+      <Units>MILLIMETERS</Units>
+      <Access>TEXTBOX</Access>
+      <DefaultValue>0</DefaultValue>
+      <Formula></Formula>
+      <FormLabel>VÃO PRATELEIRA:</FormLabel>
+      <FormulaUnits>CENTIMETERS</FormulaUnits>
+      <Options>&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='mxm007_lado'>
+      <Label>mxm007_lado</Label>
+      <Units>STRING</Units>
+      <Access>LIST</Access>
+      <DefaultValue>1</DefaultValue>
+      <Formula></Formula>
+      <FormLabel>LADO CANTO:</FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options>&amp;DIREITO=1&amp;ESQUERDO=0&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='mxm007_larg_canto'>
+      <Label>mxm007_larg_canto</Label>
+      <Units>MILLIMETERS</Units>
+      <Access>TEXTBOX</Access>
+      <DefaultValue>15.748031496062992</DefaultValue>
+      <Formula></Formula>
+      <FormLabel>LARGURA CANTO:</FormLabel>
+      <FormulaUnits>CENTIMETERS</FormulaUnits>
+      <Options>&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='mxm009_rec_esq'>
+      <Label>mxm009_rec_esq</Label>
+      <Units>STRING</Units>
+      <Access>LIST</Access>
+      <DefaultValue>1</DefaultValue>
+      <Formula></Formula>
+      <FormLabel>RECOBRE ESQUERDA:</FormLabel>
+      <FormulaUnits>STRING</FormulaUnits>
+      <Options>&amp;PARCIAL=1&amp;TOTAL=2&amp;EMBUTIDO=3&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='mxm010_rec_sup'>
+      <Label>mxm010_rec_sup</Label>
+      <Units>STRING</Units>
+      <Access>LIST</Access>
+      <DefaultValue>1</DefaultValue>
+      <Formula></Formula>
+      <FormLabel>RECOBRE SUPERIOR:</FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options>&amp;PARCIAL=1&amp;TOTAL=2&amp;EMBUTIDO=3&amp;PASSANTE=4&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='mxm011_rec_inf'>
+      <Label>mxm011_rec_inf</Label>
+      <Units>STRING</Units>
+      <Access>LIST</Access>
+      <DefaultValue>1</DefaultValue>
+      <Formula></Formula>
+      <FormLabel>RECOBRE INFERIOR:</FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options>&amp;PARCIAL=1&amp;TOTAL=2&amp;EMBUTIDO=3&amp;PASSANTE=4&amp;</Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='def_comp'>
+      <Label>def_comp</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue>=LenX*10</DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+    <AttributeDefinition id='Teste Metadata'>
+      <Label>Teste Metadata</Label>
+      <Units></Units>
+      <Access></Access>
+      <DefaultValue></DefaultValue>
+      <Formula></Formula>
+      <FormLabel></FormLabel>
+      <FormulaUnits></FormulaUnits>
+      <Options></Options>
+      <Source>definition</Source>
+    </AttributeDefinition>
+  </AttributeLibrary>
+  <Collections>
+    <Collection name=''/>
+    <Collection name=''/>
+    <Collection name=''/>
+  </Collections>
+</InjectorRepository>
